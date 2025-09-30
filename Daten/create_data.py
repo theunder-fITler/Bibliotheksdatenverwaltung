@@ -143,8 +143,8 @@ status = random.choices(stati, stati_gewichte, k=1)
 titel = f"{fake_buecher.word().capitalize()} der {fake_buecher.word().capitalize()}, {random.choices(sparten, sparten_gewichte, k=1)}"
 
 # Bücher in der Bib
-Buecher = ["Titel", "Autor", "ISBN", "Erscheinungsjahr", "Auflage", "Zustand", "Verlag", "Preis", "Bestand", "Status"]
-for i in range(1000):
+Buecher = [["Titel", "Autor", "ISBN", "Erscheinungsjahr", "Auflage", "Zustand", "Verlag", "Preis", "Bestand", "Status", "Leihfrist"]]
+for i in range(10):
     fehlerhaft = random.random() < 0.1
     if fehlerhaft:
         autor = f"{random.choice(autoren_nachname)}, {random.choice(autoren_vorname)}"
@@ -159,9 +159,9 @@ for i in range(1000):
 
     fehlerhaft = random.random() < 0.05
     if fehlerhaft:
-        isbn = faker.providers.isbn.ISBN10
+        isbn = faker.providers.isbn.ISBN10()
     else:
-        isbn = faker.providers.isbn.ISBN13
+        isbn = faker.providers.isbn.ISBN13()
 
     fehlerhaft = random.random() < 0.05
     if fehlerhaft:
@@ -227,6 +227,20 @@ for i in range(1000):
 
     Buecher.append([titel, autor, erscheinungsjahr, isbn, auflage, zustand, verlag, preis, bestand, status, leihfrist])
 
+
+
+# Alle Spalten anzeigen (auch wenn sie lang sind)
+pd.set_option('display.max_columns', None)
+
+# Optional: Alle Spalten komplett anzeigen, ohne abzuschneiden
+pd.set_option('display.width', None)
+pd.set_option('display.max_colwidth', None)
+
+# DataFrame erstellen
+df = pd.DataFrame(Buecher, columns=Buecher[0])
+
+print(df.head(10))
+
 # Kunden der bib
 
 # Anzahl Kunden
@@ -272,7 +286,7 @@ def generiere_kunde(kunden_id):
     if fehlerhaft:
         buecher_ausgeliehen = []
         for i in range(1,random.randint(1,5)):
-            buecher_ausgeliehen.append(random.choice(Buecher))
+            buecher_ausgeliehen.append(random.choice(Buecher)) # hier sollen zu 95% ausgeliehne bücher eingefügt werden
     else:
         buecher_ausgeliehen = []
 
@@ -286,7 +300,7 @@ def generiere_kunde(kunden_id):
     }
 
 # Daten generieren
-kunden_liste = [generiere_kunde(i+1) for i in range(ANZAHL_KUNDEN)]
+# kunden_liste = [generiere_kunde(i+1) for i in range(ANZAHL_KUNDEN)]
 
 
 # Verlag
@@ -331,7 +345,7 @@ def generiere_verlag(verlag_id, fehlerquote=0.1):
 ANZAHL_VERLAGE = 100
 
 # Generieren
-verlage = [generiere_verlag(i + 1) for i in range(ANZAHL_VERLAGE)]
+# verlage = [generiere_verlag(i + 1) for i in range(ANZAHL_VERLAGE)]
 
 
 ## export zu dateien
