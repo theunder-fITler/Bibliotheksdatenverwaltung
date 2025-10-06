@@ -2,6 +2,7 @@ import random
 import csv
 import pandas as pd
 import create_buecher
+import create_kunden
 
 
 ## pands nutzen, um die daten anzuschauen -> besser in jupyter arbeiten? ist aber erstmal nur hilfe, um alles richtig zu bekommen --> faker.isbn ist ein problem
@@ -13,10 +14,12 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 
-# DataFrame erstellen
-df = pd.DataFrame(create_buecher.buecher[1:], columns=create_buecher.buecher[0])
+# DataFrame für die Bücher erstellen
+df_buecher = pd.DataFrame(create_buecher.buecher[1:], columns=create_buecher.buecher[0])
 
-print(df.head(20))
+# DataFrame für die Kunden erstellen
+df_kunde = pd.DataFrame(create_kunden.generiere_kunde(i+1 for i in range(20)))
 
+print(df_kunde)
 
 ## export zu dateien

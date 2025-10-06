@@ -54,7 +54,7 @@ for i in range(20):
     # 5. Zustand
     fehlerhaft = random.random() < 0.2
     if fehlerhaft:
-        zustand = f"{random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=bestand - random.randint(0,bestand))}}"
+        zustand = f"{random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=bestand - random.randint(0,bestand))}"
     else:
         zustand = random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=bestand)
     # 6. Verlag
