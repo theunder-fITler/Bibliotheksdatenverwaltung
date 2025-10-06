@@ -18,6 +18,12 @@ def gauss_range_sample(mu=3000, sigma=1000, lower=1200, upper=99999):
 buecher = [["Titel", "Autor", "ISBN", "Erscheinungsjahr", "Auflage", "Zustand", "Verlag", "Preis", "Bestand", "Status", "Leihfrist"]]
 for i in range(20):
 
+    # 8. Bestand
+    fehlerhaft = random.random() < 0.05
+    if fehlerhaft:
+        bestand = 0
+    else:
+        bestand = random.randint(1, 9)
     # 1. Autor
     fehlerhaft = random.random() < 0.1
     if fehlerhaft:
@@ -48,9 +54,9 @@ for i in range(20):
     # 5. Zustand
     fehlerhaft = random.random() < 0.2
     if fehlerhaft:
-        zustand = f"{random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=1)}, {random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=1)}"
+        zustand = f"{random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=bestand - random.randint(0,bestand))}}"
     else:
-        zustand = random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=1)
+        zustand = random.choices(s_p.zustaende, s_p.zustaende_gewichte, k=bestand)
     # 6. Verlag
     fehlerhaft = random.random() < 0.05
     if fehlerhaft:
@@ -63,18 +69,12 @@ for i in range(20):
         preis = gauss_range_sample()
     else:
         preis = gauss_range_sample() / 100
-    # 8. Bestand
-    fehlerhaft = random.random() < 0.05
-    if fehlerhaft:
-        bestand = 0
-    else:
-        bestand = random.randint(1, 9)
     # 9. Status
     fehlerhaft = random.random() < 0.3
     if fehlerhaft:
-        status = random.choices(s_p.stati, s_p.stati_gewichte, k=2)
+        status = random.choices(s_p.stati, s_p.stati_gewichte, k=bestand - random.randint(0,bestand))
     else:
-        status = random.choices(s_p.stati, s_p.stati_gewichte, k=1)
+        status = random.choices(s_p.stati, s_p.stati_gewichte, k=bestand)
     # 10. Titel
     fehlerhaft = random.random() < 0.3
     if fehlerhaft:
