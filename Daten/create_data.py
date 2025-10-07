@@ -17,7 +17,7 @@ pd.set_option('display.max_colwidth', None)
 # DataFrame für die Bücher erstellen
 df_buecher = pd.DataFrame(create_buecher.buecher[1:], columns=create_buecher.buecher[0])
 
-# DataFrame für die Kunden erstellen
+# DataFrame für die Kunden erstellen -->! geht nicht, da die Datenstruktur zu verschachtelt ist
 df_kunde = pd.DataFrame(create_kunden.generiere_kunde(i+1 for i in range(20)))
 
 print(df_kunde)

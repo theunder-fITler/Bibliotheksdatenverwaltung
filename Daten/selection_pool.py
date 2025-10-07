@@ -28,7 +28,7 @@ zustaende_gewichte = [
     3    # Ausgemustert
 ]
 # pool für Verlage
-verlage = [
+verlagsnamen = [
     "Rowohlt Verlag",
     "Suhrkamp Verlag",
     "Fischer Verlage",
@@ -48,8 +48,46 @@ verlage = [
     "Reclam Verlag",
     "Thienemann-Esslinger",
     "Cornelsen Verlag",
-    "Beltz & Gelberg"
-]
+    "Beltz & Gelberg",
+    "Bastei Lübbe",
+    "Bonnier Verlagsgruppe",
+    "Cornelsen Verlag",
+    "Eulenspiegel Verlagsgruppe",
+    "Hubert Burda Media",
+    "Hans Gerig Musikverlage",
+    "Haufe Mediengruppe",
+    "Ernst Klett Verlag",
+    "MairDumont",
+    "Medien Union",
+    "Münchner Verlagsgruppe",
+    "Südwestdeutsche Medien Holding",
+    "Verlag C.H. Beck",
+    "Verlagsgruppe Georg von Holtzbrinck",
+    "Verlagsgruppe Handelsblatt",
+    "Verlagsgruppe Herder",
+    "Verlagsgruppe Husum",
+    "Verlagsgruppe Hüthig Jehle Rehm",
+    "Verlagsgruppe Ippen",
+    "Verlagsgruppe Random House",
+    "Verlagsgruppe Weltbild",
+    "Verlagshaus Römerweg",
+    "WEKA-Verlagsgruppe",
+    "Verlag Moderne Industrie",
+    "Redline Verlag",
+    "Nomos Verlagsgesellschaft",
+    "Oldenbourg Verlag",
+    "Verlag J. Neumann",
+    "Reinhold Kühn Verlag",
+    "Münchener Verlagsgruppe",
+    "Verlag Gerhard Rautenberg",
+    "Silberschnur Verlag",
+    "SingLiesel Verlag",
+    "Thomas Kettler Verlag",
+    "MM Verlag",
+    "Diederichs Verlag",
+    "Gräfe und Unzer Verlag",
+    "MM Verlag"
+    ]
 
 # pool für stati
 stati = ["verliehen", "vorgemerkt", "verfügbar", "verloren", "???", "ausgeliehen", "grün", "gelb", "rot"]
@@ -125,7 +163,20 @@ sparten_gewichte = [
 ]
 
 # pool für Autoren wird generiert
-fake_autoren = Faker('de_DE')
+fake_namen = Faker('de_DE')
 
-autoren_vorname = [f"{fake_autoren.first_name()}" for i in range(100)]
-autoren_nachname = [f"{fake_autoren.last_name()}" for i in range(100)]
+vornamen = [f"{fake_namen.first_name()}" for i in range(100)]
+nachnamen = [f"{fake_namen.last_name()}" for i in range(100)]
+
+# pool für Adressen
+fake_adressen = Faker('de_DE')
+
+adressen = []
+for i in range(len(verlagsnamen)):
+    adresse = fake_adressen.address().replace("\n", ", ")
+    adressen.append(adresse)
+
+# pool für telefonnummern
+fake_telefonnummern = Faker('de_DE')
+
+telefonnummern = [f"{fake_telefonnummern.phone_number()}" for i in range(len(verlagsnamen))]

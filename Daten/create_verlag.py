@@ -13,7 +13,7 @@ def generiere_verlag(verlag_id, fehlerquote=0.1):
     fehlerhaft = random.random() < fehlerquote
 
     # Name
-    name = random.choice(s_p.verlage)
+    name = random.choice(s_p.verlagsnamen)
     if not name or random.random() < 0.3:
         # 30 % Chance für generierten Verlag
         name = fake_verlag.company() + " Verlag"

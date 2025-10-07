@@ -60,9 +60,9 @@ for i in range(20):
     # 6. Verlag
     fehlerhaft = random.random() < 0.05
     if fehlerhaft:
-        verlag = random.choice(s_p.verlage).upper()
+        verlag = random.choice(s_p.verlagsnamen).upper()
     else:
-        verlag = random.choice(s_p.verlage)
+        verlag = random.choice(s_p.verlagsnamen)
     # 7. Preis
     fehlerhaft = random.random() < 0.05
     if fehlerhaft:
