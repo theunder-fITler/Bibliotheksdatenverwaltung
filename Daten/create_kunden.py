@@ -87,7 +87,7 @@ def generiere_kunde(kunden_id):
         # Vom Kunden ausgeliehne Bücher mit Datum versehen
         buecher_verliehen_auswahl_datum = []
         for buch in buecher_verliehen_auswahl:
-            buch_datum = (buch[2], zufaelliges_ausleihdatum())
+            buch_datum = (buch[2], zufaelliges_ausleihdatum()) # buch[2] == ISBN
             buecher_verliehen_auswahl_datum.append(buch_datum)
         buecher_ausgeliehen = buecher_verliehen_auswahl_datum
 
@@ -103,5 +103,3 @@ def generiere_kunde(kunden_id):
 
 # Daten generieren
 kunden_liste = [generiere_kunde(i+1) for i in range(ANZAHL_KUNDEN)]
-
-print(kunden_liste)

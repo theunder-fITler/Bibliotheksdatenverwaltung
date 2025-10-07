@@ -162,7 +162,7 @@ sparten_gewichte = [
     2    # Sport
 ]
 
-# pool für Autoren wird generiert
+# pool für namen wird generiert
 fake_namen = Faker('de_DE')
 
 vornamen = [f"{fake_namen.first_name()}" for i in range(100)]

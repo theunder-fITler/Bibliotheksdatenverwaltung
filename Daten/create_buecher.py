@@ -27,9 +27,9 @@ for i in range(20):
     # 1. Autor
     fehlerhaft = random.random() < 0.1
     if fehlerhaft:
-        autor = f"{random.choice(s_p.autoren_nachname)}, {random.choice(s_p.autoren_vorname)}"
+        autor = f"{random.choice(s_p.nachnamen)}, {random.choice(s_p.vornamen)}"
     else:
-        autor = f"{random.choice(s_p.autoren_vorname)} {random.choice(s_p.autoren_nachname)}"
+        autor = f"{random.choice(s_p.vornamen)} {random.choice(s_p.nachnamen)}"
     # 2. ISBN
     fehlerhaft = random.random() < 0.05
     if fehlerhaft:
