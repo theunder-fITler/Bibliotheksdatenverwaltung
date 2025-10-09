@@ -4,6 +4,12 @@ from datetime import datetime, timedelta    # kurze schreibweise dadurch möglic
 import random
 from create_buecher import buecher
 
+
+
+## Faker und random seed
+Faker.seed(12345)
+random.seed(12345)
+
 ## Ausgeliehene Bücher vorbereiten
 buecher_verliehen = []
 for buch in buecher:
@@ -103,3 +109,5 @@ def generiere_kunde(kunden_id):
 
 # Daten generieren
 kunden_liste = [generiere_kunde(i+1) for i in range(ANZAHL_KUNDEN)]
+# Liste mischen, damit nich alle Kunden die ein Buch ausgeliehen haben am Anfang stehen
+random.shuffle(kunden_liste)

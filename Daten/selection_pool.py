@@ -1,6 +1,10 @@
 from faker import Faker
 
 
+
+## Faker und random seed
+Faker.seed(12345)
+
 ## Listen für die Generierung
 # pool für Zustände
 zustaende = [

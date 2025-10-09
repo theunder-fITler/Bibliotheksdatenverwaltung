@@ -4,6 +4,10 @@ import selection_pool as s_p
 
 
 
+## Faker und random seed
+Faker.seed(12345)
+random.seed(12345)
+
 ## Verlage faken
 fake_verlag = Faker("de_DE")
 ANZAHL_VERLAGE = 100
