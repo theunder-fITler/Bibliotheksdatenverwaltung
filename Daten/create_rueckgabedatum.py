@@ -21,6 +21,7 @@ for kunde in kunden_liste:
 
 # Neue Liste mit verliehenen Büchern und derem Rückgabedatum (Format: (ISBN, Rückgabedatum)
 buecher_ausgeliehen_rueckgabe = []
+zaehler_fehler = 0
 
 for buch_datum in buecher_ausgeliehen_aktuell:
     ## Debugg Ausgabe
@@ -39,9 +40,10 @@ for buch_datum in buecher_ausgeliehen_aktuell:
         # print(f"buch_datum nach änderung: {buch_datum}")
         buecher_ausgeliehen_rueckgabe.append(buch_rueckgabedatum)
     except TypeError:
-        print("Fehler beim Datentyp: Eintrag konnte nicht verändert werden")
+        # print("Fehler beim Datentyp: Eintrag konnte nicht verändert werden")
+        zaehler_fehler += 1
         buch_rueckgabedatum = (buch_datum[0], None)
         buecher_ausgeliehen_rueckgabe.append(buch_rueckgabedatum)
 
 ## Debugg Ausgabe
-print(f"Liste der verliehenen Bücher mit Rückgabedatum: {buecher_ausgeliehen_rueckgabe}")
+print(f"Länge der Liste der verliehenen Bücher mit Rückgabedatum: {len(buecher_ausgeliehen_rueckgabe)}")

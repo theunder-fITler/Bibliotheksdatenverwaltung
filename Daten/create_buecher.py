@@ -20,7 +20,7 @@ def gauss_range_sample(mu=3000, sigma=1000, lower=1200, upper=99999):
             return int(value)
 
 buecher = [["Titel", "Autor", "ISBN", "Erscheinungsjahr", "Auflage", "Zustand", "Verlag", "Preis", "Bestand", "Status", "Leihfrist"]]
-for i in range(20):
+for i in range(1313):
 
     # 8. Bestand
     fehlerhaft = random.random() < 0.05

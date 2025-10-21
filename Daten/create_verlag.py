@@ -1,50 +1,90 @@
 import random
-from faker import Faker
 import selection_pool as s_p
 
 
 
-## Faker und random seed
-Faker.seed(12345)
-random.seed(12345)
-
-## Verlage faken
-fake_verlag = Faker("de_DE")
-ANZAHL_VERLAGE = 100
-
-# Feste Liste einiger realistischer (oder anmutender) Verlagsnamen
-def generiere_verlag(verlag_id, fehlerquote=0.1):
-    fehlerhaft = random.random() < fehlerquote
-
-    # Name
-    name = random.choice(s_p.verlagsnamen)
-    if not name or random.random() < 0.3:
-        # 30 % Chance für generierten Verlag
-        name = fake_verlag.company() + " Verlag"
-
-    if fehlerhaft and random.random() < 0.4:
-        name = random.choice(["", "Verlag ???", None])
-
-    # Adresse
-    adresse = fake_verlag.address().replace("\n", ", ")
-    if fehlerhaft and random.random() < 0.4:
-        adresse = random.choice(["", None, "Unbekannt"])
-
-    # Kontakt: Entweder Telefonnummer oder E-Mail
-    if random.random() < 0.5:
-        kontakt = fake_verlag.phone_number()
-    else:
-        kontakt = fake_verlag.company_email()
-
-    if fehlerhaft and random.random() < 0.3:
-        kontakt = random.choice(["", None, "keine Angabe"])
-
-    return {
-        "VerlagID": verlag_id,
-        "Name": name,
+def FehlerhaftGenerieren(id):
+    id = id
+    # eintrag = []
+    name = s_p.verlagsnamen[id - 1]
+    name = name.encode("utf-8")
+    #name = bytearray(name)
+    #name[1] = (name[1] - 1) % 256
+    name = name.decode("latin-1")
+    adresse = random.choice(s_p.adressen)
+    s_p.adressen.remove(adresse)
+    adresse = adresse.encode("utf-8")
+    #adresse = bytearray(adresse)
+    #adresse[1] = (adresse[1] - 1) % 256
+    adresse = adresse.decode("latin-1")
+    nachname = random.choice(s_p.nachnamen)
+    s_p.nachnamen.remove(nachname)
+    vorname = random.choice(s_p.vornamen)
+    kontaktperson = nachname + "," + vorname
+    kontaktperson = kontaktperson.encode("utf-8")
+    #kontaktperson = bytearray(kontaktperson)
+    #kontaktperson[1] = (kontaktperson[1] - 1) % 256
+    kontaktperson = kontaktperson.decode("latin-1")
+    telefon = random.choice(s_p.telefonnummern)
+    s_p.telefonnummern.remove(telefon)
+    # eintrag.append({"id": id, "name": name, "adresse": adresse, "kontaktperson": kontaktperson, "telefon": telefon})
+    eintrag = {                                         # Dictionary anstelle einer Liste
+        "ID": id,
+        "Verlagsname": name,
         "Adresse": adresse,
-        "Kontakt": kontakt
+        "Kontaktperson": kontaktperson,
+        "Telefonnummer": telefon
     }
+    return eintrag
 
-# Generieren
-verlage = [generiere_verlag(i + 1) for i in range(ANZAHL_VERLAGE)]
+# print(FehlerhaftGenerieren(21))
+
+def Generieren(id):
+    id = id
+    # eintrag = []
+    name = s_p.verlagsnamen[id - 1]
+    adresse = random.choice(s_p.adressen)
+    s_p.adressen.remove(adresse)
+    nachname = random.choice(s_p.nachnamen)
+    s_p.nachnamen.remove(nachname)
+    vorname = random.choice(s_p.vornamen)
+    kontaktperson = vorname + " " + nachname
+    telefon = random.choice(s_p.telefonnummern)
+    s_p.telefonnummern.remove(telefon)
+    # eintrag.append({"id": id, "name": name, "adresse": adresse, "kontaktperson": kontaktperson, "telefon": telefon})
+    eintrag = {                                     # Dictionary anstelle einer Liste
+        "ID": id,
+        "Verlagsname": name,
+        "Adresse": adresse,
+        "Kontaktperson": kontaktperson,
+        "Telefonnummer": telefon
+    }
+    return eintrag
+
+# print(Generieren(21))
+
+
+# Leere Liste erstellen
+verlagsdaten = []
+
+fehlerhaft = 1
+i = 1
+falsch_zaehler = 0                                                                      # ZUSATZ
+richtig_zaehler = 0                                                                     # ZUSATZ
+# Schleife in der Länge der Liste aus dem selection_pool erstellen
+while i <= len(s_p.verlagsnamen):                                                        # wie im PAP
+# for i in range(i, len(sp.verlagsnamen) + 1):                                          # Andere Lösung
+    if fehlerhaft == random.randint(1, 10):
+        falsch = FehlerhaftGenerieren(i)                                           # Funktion FehlerhaftGenerieren einfügen
+        verlagsdaten.append(falsch)
+        falsch_zaehler = falsch_zaehler + 1
+        i = i + 1                                                                       # Bei anderer lösung muss das gelöscht werden
+    else:
+        richtig = Generieren(i)                                                     # Funktion FehlerhaftGenerieren einfügen
+        verlagsdaten.append(richtig)
+        richtig_zaehler = richtig_zaehler + 1
+        i = i + 1                                                                       # Bei anderer lösung muss das gelöscht werden
+
+# print(verlagsdaten)
+# Zähler printen
+print("Falsch:", falsch_zaehler, "\nRichtig:", richtig_zaehler)

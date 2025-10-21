@@ -26,7 +26,7 @@ for buch in buecher:
 
 ## Kunden der Bib faken
 fake_kunde = Faker('de_DE')
-ANZAHL_KUNDEN = 3
+ANZAHL_KUNDEN = 252
 FEHLERQUOTE = 0.15  # 15 % der Kunden erhalten Fehler
 
 def zufaelliges_datum(start_year=1900, end_year=2007):

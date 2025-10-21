@@ -36,7 +36,7 @@ print(df_kunde)
 
 ## DataFrame für die Verlage erstellen
 # verlage ist eine Liste mit dicts
-df_verlage = pd.DataFrame(create_verlag.verlage)
+df_verlage = pd.DataFrame(create_verlag.verlagsdaten)
 
 print("-------")
 print("Dataframe")
@@ -53,14 +53,14 @@ print("-------")
 print(df_buecher_rueckgabe)
 
 ## export zu dateien
-datensätze = {"buecher": create_buecher.buecher,
+datensaetze = {"buecher": create_buecher.buecher,
               "kundenliste": create_kunden.kunden_liste,
-              "verlage": create_verlag.verlage,
-              "rückgabeliste":create_rueckgabedatum.buecher_ausgeliehen_rueckgabe
-            }
+              "verlage": create_verlag.verlagsdaten,
+              "rückgabeliste":create_rueckgabedatum.buecher_ausgeliehen_rueckgabe,
+               }
 
 
-for name, datensatz in datensätze.items():
+for name, datensatz in datensaetze.items():
     erster_eintrag = datensatz[0]
     with open(f'{name}.csv', 'w', newline='', encoding="utf-8") as csvfile:
 
