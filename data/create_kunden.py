@@ -107,7 +107,7 @@ def generiere_kunde(kunden_id):
         "Ausgeliehen": buecher_ausgeliehen
     }
 
-# Daten generieren
+# data generieren
 kunden_liste = [generiere_kunde(i+1) for i in range(ANZAHL_KUNDEN)]
 # Liste mischen, damit nich alle Kunden die ein Buch ausgeliehen haben am Anfang stehen
 random.shuffle(kunden_liste)
