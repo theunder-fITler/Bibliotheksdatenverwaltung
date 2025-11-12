@@ -15,13 +15,13 @@ Die Aufgabe sollte als Kernziel eine Verwaltung von Daten beinhalten. Dabei kön
 ```
 
 **Das Ziel:**
-Verknüpfung der Umschulungsinhalte zu einem praxisnahem Projekt:
+Verknüpfung der Umschulungsinhalte zu einem praxisnahen Projekt:
 - also eine Datenbank in guter Form erstellen,
 - Schnittstelle zu py herstellen,
 - Datenexploration mit pandas,
-- Datenbereinigung mit py,
+- Datenbereinigung mit Python,
 - selbstständiges Arbeiten in einer praxisnahen Form,
-- Skills und Theorie aus dem PM einbinden
+- Skills und Theorie aus dem Projektmanagement (PM) einbinden
 
 
 ---
@@ -29,8 +29,8 @@ Verknüpfung der Umschulungsinhalte zu einem praxisnahem Projekt:
 ## Inhalte des Repos
 
 | Datei / Ordner | Beschreibung                                                      |
-| -------------- | ----------------------------------------------------------------- |
-| `/src/`        | Scripts zur Datenbereinigung, Quellcode der Bibliotheksverwaltung |
+| -------------- |-------------------------------------------------------------------|
+| `/src/`        | Skripte zur Datenbereinigung, Quellcode der Bibliotheksverwaltung |
 | `/data/`       | Bibliotheksdaten                                                  |
 | `/docs/`       | Notizen, Pflichtenheft, Protokolle, etc.                          |
 | `/notebooks/`  | Datenexploration                                                  |
@@ -57,14 +57,15 @@ Verknüpfung der Umschulungsinhalte zu einem praxisnahem Projekt:
 	- Welchen Umfang möchte ich dem Projekt einräumen?
 	- Mit was für Daten möchte ich arbeiten?
 	- Welche Tools sollen eingesetzt werden?
+
 	**Abhängigkeiten:**
-	- Fake-Daten
+	- Faker-Daten
 	- Fake-Kundenanfrage
 
 	--> **Meilenstein:** [Anfrage der Bibliothek](docs/Anfrage_der_Bib_BiBi.md)
 
 1. **Initialisierung:** 
-    - Anfrage der Bibliothek analysieren -> [Fazit](docs/Fazit_BiBi.md)
+    - Anfrage der Bibliothek analysieren → [Fazit](docs/Fazit_BiBi.md)
     - [Antwort auf Anfrage](docs/Antwort_an_Bib_BiBi.md) erstellen
     - [Auftragsverarbeitungsvertrag](docs/Auftragsverarbeitung_BiBi.md)
     - Daten abholen: [Gedächtnisprotokoll](docs/Gedächtnisprotokoll_BiBi.md)
@@ -74,7 +75,7 @@ Verknüpfung der Umschulungsinhalte zu einem praxisnahem Projekt:
    
 3. **Planen:** 
     
-4. **Umsetzten:** 
+4. **Umsetzen:** 
     
 5. **Kontrollieren:** 
     
