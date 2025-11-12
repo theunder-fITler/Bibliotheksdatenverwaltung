@@ -60,14 +60,15 @@ Verknüpfung der Umschulungsinhalte zu einem praxisnahem Projekt:
 	**Abhängigkeiten:**
 	- Fake-Daten
 	- Fake-Kundenanfrage
-	--> **Meilenstein:** [Anfrage der Bibliothek](Anfrage der Bib)
+
+	--> **Meilenstein:** [Anfrage der Bibliothek](docs/Anfrage_der_Bib_BiBi.md)
 
 1. **Initialisierung:** 
-    - Anfrage der Bibliothek analysieren -> [[Fazit]]
-    - [[Antwort an Bib|Antwort auf Anfrage]] erstellen
-    - [[Auftragsverarbeitung]] regeln
-    - Daten abholen: [[Gedächtnisprotokoll]]
-    - Datenexploration [siehe notebooks und andere datein]
+    - Anfrage der Bibliothek analysieren -> [Fazit](docs/Fazit_BiBi.md)
+    - [Antwort auf Anfrage](docs/Antwort_an_Bib_BiBi.md) erstellen
+    - [Auftragsverarbeitungsvertrag](docs/Auftragsverarbeitung_BiBi.md)
+    - Daten abholen: [Gedächtnisprotokoll](docs/Gedächtnisprotokoll_BiBi.md)
+    - Datenexploration - [siehe notebooks](docs/)
 
     --> **Meilenstein:** Angebot an die Bibliothek
    
@@ -82,7 +83,7 @@ Verknüpfung der Umschulungsinhalte zu einem praxisnahem Projekt:
 
 ---
 
-### 📜 Lizenz
+### Lizenz
 
 MIT License – frei nutzbar und erweiterbar.  
 Ein Projekt von theunder_fITler.
