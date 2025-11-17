@@ -69,7 +69,7 @@ Verknüpfung der Umschulungsinhalte zu einem praxisnahen Projekt:
     - [Antwort auf Anfrage](docs/Antwort_an_Bib_BiBi.md) erstellen
     - [Auftragsverarbeitungsvertrag](docs/Auftragsverarbeitung_BiBi.md)
     - Daten abholen: [Gedächtnisprotokoll](docs/Gedächtnisprotokoll_BiBi.md)
-    - Datenexploration - [siehe notebooks](docs/)
+    - Datenexploration - [siehe notebooks](notebooks/)
 
     --> **Meilenstein:** Angebot an die Bibliothek
    
