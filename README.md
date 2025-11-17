@@ -71,7 +71,7 @@ Verknüpfung der Umschulungsinhalte zu einem praxisnahen Projekt:
     - Daten abholen: [Gedächtnisprotokoll](docs/Gedächtnisprotokoll_BiBi.md)
     - Datenexploration - [siehe notebooks](notebooks/)
 
-    --> **Meilenstein:** Angebot an die Bibliothek
+    --> **Meilenstein:** [Angebot an die Bibliothek](docs/Angebot_BiBi.md)
    
 3. **Planen:** 
     
