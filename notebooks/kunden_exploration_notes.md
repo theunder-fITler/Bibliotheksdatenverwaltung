@@ -42,6 +42,24 @@ dtypes: int64(1), object(5)
 
 ## Geburtsdatum
 
+1. 12 * NaN
+2. Format dd-mm-yyyy
+3. 2 einzigartige Werte **aber** auch noch NaN!
+52     20020610
+4. 4 Einträge sind in Format YYYYMMDD
+
+count                    240
+mean     1954-03-29 
+min      1900-02-05 
+25%      1926-03-29 
+50%      1953-12-02 
+75%      1980-05-19 
+max      2007-04-17 
+Name: Geburtsdatum, dtype: object
+
+5. 
+116	114	Bernadette Werner	19000205	Cäcilia-Scholl-Straße 958, 69780 Bruchsal	gestorben	[('978-0-7313-9811-9', None), ('978-0-328-0688...
+
 ## Adresse
 
 ## EndeMitgliedschaft
